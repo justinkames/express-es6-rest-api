@@ -4,12 +4,9 @@ import chai from 'chai';
 import supertest from 'supertest';
 import app from '../../../.bin/www';
 let should = chai.should();
-import mongoose from 'mongoose';
-import mockgoose from 'mockgoose';
-mockgoose(mongoose);
 let request = supertest(app);
 
-describe('/api/todo', () => {
+describe('/api/todos', () => {
 	it('[GET] should be OK (200) and return array of todos', done => {
 		request.get('/api/todos')
 		.set('Accept', 'application/json')

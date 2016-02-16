@@ -36,8 +36,9 @@ export default class TodoService {
 
 	removeByTitle(title, cb) {
 		pool.getConnection((err, conn) => {
-			connection.query('DELETE FROM Todo WHERE title = : ',['title'], function (err, res) {
+			connection.query('DELETE FROM Todo WHERE title = ? ', title, function (err, res) {
 				cb(err, res);
+				conn.release();
 			});
 		});
 	}

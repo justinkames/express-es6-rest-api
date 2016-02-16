@@ -1,4 +1,3 @@
-
 'use strict';
 
 import {Router} from 'express';
@@ -11,8 +10,10 @@ let todoService = new TodoService();
 // curl -X GET localhost:3000/api/todos
 router.get('/', (req, res) => {
 	todoService.list((err, rows) => {
-		if (!err) {
-			return res.json(rows);
+		if (err) {
+			return res.json({error: 'Could not retrieve todos.'});
+		} else {
+			return res.json({todos: rows});
 		}
 	});
 });
@@ -42,15 +43,13 @@ router.put('/:id', (req, res) => {
 	let title = req.body.title;
 	let description = req.body.description;
 	let todo = new Todo(title, description, id);
-
 	todoService.update(todo, (err, result) => {
 		if (err) {
 			return res.status(400).json({message: 'Something went wrong updating the record'});
 		} else {
-			return res.json({message: 'Succesfully updated the record.'});
+			return res.json({message: 'Succesfully updated the record!'});
 		}
 	});
-
 });
 
 export default router;

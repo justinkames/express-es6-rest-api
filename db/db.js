@@ -1,3 +1,5 @@
+'use strict';
+
 import config from 'config';
 import mysql from 'mysql';
 

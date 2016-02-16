@@ -1,4 +1,8 @@
-# Express 4 / ES 6 TODO REST API
+# Express 4 / ES 6 / REST API / MYSQL
+
+### Introduction
+
+Simple POC showcasing CRUD operations with express and mysql (es6).
 
 ### Technologies
 
@@ -6,7 +10,7 @@
 - Express 4
 - ES6 syntax
 - Eslint ( google style )
-- MYSQL CRUD examples
+- MYSQL
 
 ### Features
 
@@ -24,6 +28,9 @@
 
 - Unit testing with mocha, chai, chai-as-promised, sinon and supertest ( ES6 )
 - `$ npm test` == `NODE_ENV=dev ./node_modules/mocha/bin/mocha test/ --recursive --compilers js:babel-core/register`
+
+- curl -H "Content-Type: application/json" -X POST -d '{"title":"clean", "description":"clean the house"}' localhost:3000/api/todos
+-
 
 # Best Practices
 
