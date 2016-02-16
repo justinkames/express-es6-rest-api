@@ -1,0 +1,7 @@
+{
+	"apiVersion" : "0.0.1",
+	"host": "localhost",
+	"user": "root",
+	"pass": "",
+	"db": "todotest"
+}

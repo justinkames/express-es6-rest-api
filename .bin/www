@@ -1,0 +1,48 @@
+'use strict';
+
+import http from 'http';
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import api from '../api';
+import authMiddleware from '../middleware/auth';
+import config from 'config';
+
+let app = express();
+let port = normalizePort(process.env.PORT || '3000');
+
+app.use(cors({
+	exposedHeaders: ['Link']
+}));
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+
+// register auth middleware
+app.use(authMiddleware());
+
+//register api
+app.use('/api', api());
+app.server = http.createServer(app);
+app.server.listen(port);
+console.log('listening on port :' + port );
+
+/**
+* Normalize a port into a number, string, or false.
+*/
+function normalizePort(val) {
+	var port = parseInt(val, 10);
+
+	if (isNaN(port)) {
+		// named pipe
+		return val;
+	}
+
+	if (port >= 0) {
+		// port number
+		return port;
+	}
+	return false;
+}
+
+export default app;

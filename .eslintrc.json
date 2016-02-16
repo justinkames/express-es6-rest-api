@@ -1,0 +1,17 @@
+{
+	"extends": "google",
+	"rules": {
+		"indent": [
+			2,
+			"tab"
+		],
+		"new-cap": [
+			2,
+			{
+				"capIsNewExceptions": [
+					"Router"
+				]
+			}
+		]
+	}
+}
