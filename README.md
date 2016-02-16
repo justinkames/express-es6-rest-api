@@ -29,8 +29,9 @@ Simple POC showcasing CRUD operations with express and mysql (es6).
 - Unit testing with mocha, chai, chai-as-promised, sinon and supertest ( ES6 )
 - `$ npm test` == `NODE_ENV=dev ./node_modules/mocha/bin/mocha test/ --recursive --compilers js:babel-core/register`
 
-- curl -H "Content-Type: application/json" -X POST -d '{"title":"clean", "description":"clean the house"}' localhost:3000/api/todos
--
+=> curl -X GET localhost:3000/api/todos
+=> curl -H "Content-Type: application/json" -X POST -d '{"title":"clean", "description":"clean the house"}' localhost:3000/api/todos
+=> curl -H "Content-Type: application/json" -X PUT -d '{"title":"clean", "description":"clean all the houses"}' localhost:3000/api/todos/1
 
 # Best Practices
 
