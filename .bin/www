@@ -5,7 +5,6 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import api from '../lib/api';
-import authMiddleware from '../lib/middleware/auth';
 import config from 'config';
 import path from 'path';
 import io from '../lib/io/io';
@@ -19,9 +18,6 @@ app.use(cors({
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
-
-// register auth middleware
-app.use(authMiddleware());
 
 // allow static resources
 console.log('static resources at', __dirname + '/public');

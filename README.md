@@ -2,7 +2,7 @@
 
 ### Introduction
 
-POC showcasing CRUD operations with express js (es6) and mysql, coverage reports on es6 code with istanbul and isparta. Real time database notifications with socket.io.
+POC showcasing CRUD operations with express js (es6) and mysql, coverage reports on es6 code with istanbul and isparta. Real time database push notifications with Socket.io.
 
 ### Technologies
 
