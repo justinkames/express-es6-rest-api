@@ -4,12 +4,14 @@ import http from 'http';
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import api from '../api';
-import authMiddleware from '../middleware/auth';
+import api from '../lib/api';
+import authMiddleware from '../lib/middleware/auth';
 import config from 'config';
+import path from 'path';
+import io from '../lib/io/io';
 
 let app = express();
-let port = normalizePort(process.env.PORT || '3000');
+let port =process.env.PORT || '3000';
 
 app.use(cors({
 	exposedHeaders: ['Link']
@@ -21,28 +23,24 @@ app.use(bodyParser.urlencoded({extended: true}))
 // register auth middleware
 app.use(authMiddleware());
 
+// allow static resources
+console.log('static resources at', __dirname + '/public');
+app.use(express.static(path.resolve('public')));
+
 //register api
 app.use('/api', api());
+
+// load index
+app.use('/', (req, res) => {
+	return res.sendFile(path.resolve('public/index.html'));
+});
+
 app.server = http.createServer(app);
+
+// register socket io
+io(app);
+
 app.server.listen(port);
-console.log('listening on port :' + port );
-
-/**
-* Normalize a port into a number, string, or false.
-*/
-function normalizePort(val) {
-	var port = parseInt(val, 10);
-
-	if (isNaN(port)) {
-		// named pipe
-		return val;
-	}
-
-	if (port >= 0) {
-		// port number
-		return port;
-	}
-	return false;
-}
+console.log(`Listening @ port ${port}`);
 
 export default app;
