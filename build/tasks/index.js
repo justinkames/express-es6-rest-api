@@ -1,5 +1,3 @@
-'use strict';
-
-import gulp from 'gulp';
+let gulp = require('gulp');
 
 gulp.task('default', ['watch-mocha']);

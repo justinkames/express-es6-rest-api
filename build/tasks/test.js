@@ -1,8 +1,6 @@
-'use strict';
-
-import gulp from 'gulp';
-import mocha from 'gulp-mocha';
-import gutil from 'gulp-util';
+let gulp = require('gulp');
+let mocha = require('gulp-mocha');
+let gutil = require('gulp-util');
 
 gulp.task('mocha', () => {
 	return gulp.src(['lib/test/**/*.js'], {read:false})

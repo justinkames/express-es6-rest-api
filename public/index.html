@@ -3,31 +3,37 @@
 
 <head>
 	<title>Notification example</title>
+	<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">
 </head>
 
 <body>
-
-	<div>
-		<h1> DB updates </h1>
-		<div id="dbupdates"/>
+	<div ng-app="app" ng-controller="appCtrl" class="col-md-12">
+		<div class="col-md-3">
+			<h5> Latest records </h5>
+			<ul>
+				<li ng-repeat="dbupdate in dbupdates">{{dbupdate}}</li>
+			</ul>
+		</div>
+		<div class="col-md-3">
+			<h5> Number of users connected </h5>
+			<span ng-bind="nrOfUsers"/>
+		</div>
+		<div class="col-md-3">
+			<h5> Broadcasts </h5>
+			<ul>
+				<li ng-repeat="broadcast in broadcasts">{{broadcast}}</li>
+			</ul>
+		</div>
+		<div class="col-md-3">
+			<h5> Events </h5>
+			<ul>
+				<li ng-repeat="event in events">{{event}}</li>
+			</ul>
+		</div>
 	</div>
-
-	<div>
-		<h1> Server messages </h1>
-		<div id="messages"/>
-	</div>
-
-	<div>
-		<h1> Broadcasts </h1>
-		<div id="broadcasts"/>
-	</div>
-
-	<div>
-		<h1> Events </h1>
-		<div id="events"/>
-	</div>
-
+	<script src="/node_modules/angular/angular.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
-	<script src="/assets/push.js"></script>
+	<script src="/static/assets/app.js"></script>
+	<script src="/node_modules/angular-socket-io/socket.min.js"></script>
 </body>
 </html>

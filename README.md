@@ -1,40 +1,43 @@
-# Express 4 / ES 6 / REST API / MYSQL
-
 ### Introduction
+POC showcasing CRUD operations with Express JS (ES6) and MySQL. Real time database push notifications with socket.io.
 
-POC showcasing CRUD operations with express js (es6) and mysql, coverage reports on es6 code with istanbul and isparta. Real time database push notifications with Socket.io.
+### Requirements
+
+- Node JS ( 6.8.1 )
+- MySQL DB ( execute script @ .bin/create-script.sql ).
 
 ### Technologies
 
-- Node JS
-- Gulp JS
 - Express 4
-- ES6 syntax
+- Angular
+- Gulp JS
 - MySQL
-- Eslint ( google style )
+- ESlint
 
 ### Features
 
-- Server reload on file change with nodemon
-- Unit testing with mocha, sinon and chai (es6)
-- Mocha / istanbul / isparta coverage reports ( gulp tasks )
-- Injectable properties with NPM config module
-- Rest API example with isolated controller functions for unit testing
-- MySQL connection and MySQL CRUD examples
+- Server reload on file change with nodemon.
+- Unit testing with mocha, sinon and chai (es6).
+- Injectable properties with NPM config module.
+- Rest API example with isolated controller functions for unit testing.
+- MySQL connection and MySQL CRUD examples.
+- Real time communicatoin with socket.io.
 
 ### Installation development
 
-- `$ npm i`
-- `$ npm run-script startdev` == `$ NODE_CONFIG_DIR=lib/config NODE_ENV=dev DEBUG=express:router,application nodemon .bin`
+- `$ npm i` or `$ yarn`
+- `$ npm run-script startdev`
+
+- set db credentials in config/dev.json.
+
 - browse api @ `http://localhost:3000/api`
 - browse index @ `http://localhost:3000`
 
 ### Scripts
 
 - "` $ npm start`": "`NODE_CONFIG_DIR=lib/config NODE_ENV=prod node .bin`",
-- "` $ npm startdev`": "`NODE_CONFIG_DIR=lib/config NODE_ENV=dev DEBUG=express:router,application nodemon .bin`",
-- "`$ npm coverage-report`": "`NODE_CONFIG_DIR=lib/config NODE_ENV=dev gulp coverage-report`",
-- "`$ npm test`": "`NODE_CONFIG_DIR=lib/config NODE_ENV=dev gulp watch-mocha`",
+- "` $ npm run startdev`": "`NODE_CONFIG_DIR=lib/config NODE_ENV=dev DEBUG=express:router,application nodemon .bin`",
+- "` $ npm test`": "`NODE_CONFIG_DIR=lib/config NODE_ENV=dev gulp watch-mocha`",
 
 ### CURL examples
 
